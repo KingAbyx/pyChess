@@ -16,14 +16,10 @@ class Piece:
         }
 
     @classmethod
-    def from_dict(cls, d):
-        piece = cls()
-        piece.pos_x = d['pos_x']
-        piece.pos_y = d['pos_y']
-        piece.figure = d['figure']
+    def from_dict(cls, d, colour):
+        piece = cls(d['pos_x'], d['pos_y'], d['figure'], colour)
         piece.moved = d['moved']
         return piece
-
 
     def get_threatened_squares(self, board):
         direct = 0

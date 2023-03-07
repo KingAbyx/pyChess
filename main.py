@@ -77,6 +77,15 @@ def threat(colour):
                 y.config(bg=schemes.get("threat")["bg"])
 
 
+def populate():
+    for x in range(8):
+        for y in range(8):
+            if board1.board[x][y] is not None:
+                buttons[x][y].config(text=board1.board[x][y])
+            else:
+                buttons[x][y].config(text="")
+
+
 def save():
     global board1
     board1.save('board.json')
@@ -87,6 +96,7 @@ def load():
     global select
     board1 = Board.load('board.json')
     board1.populate()
+    populate()
     select = None
 
 

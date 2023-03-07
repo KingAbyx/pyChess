@@ -25,8 +25,8 @@ class Board:
     @classmethod
     def from_dict(cls, d):
         board = cls()
-        board.white_pieces = set(Piece.from_dict(d['white_pieces']))
-        board.black_pieces = set(Piece.from_dict(d['black_pieces']))
+        board.white_pieces = set(Piece.from_dict(dd, 'W') for dd in d['white_pieces'])
+        board.black_pieces = set(Piece.from_dict(dd, 'B') for dd in d['black_pieces'])
         board.turn = d['turn']
         return board
 
