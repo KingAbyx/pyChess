@@ -54,9 +54,13 @@ class Piece:
     def get_threats_in_direction(self, board, dx, dy):
         x, y = self.pos_x + dx, self.pos_y + dy
         while 0 <= x < 8 and 0 <= y < 8:
-            if not board.board[x][y] is None:
+            if board.board[x][y] is not None:
+                if board.board[x][y] == 'K':
+                    if 0 < x+dx <= 8 and 0 < y+dy <= 8:
+                        self.threatened_squares.add((x+dx, y+dy))
                 self.threatened_squares.add((x, y))
                 break
+
             self.threatened_squares.add((x, y))
             x += dx
             y += dy
