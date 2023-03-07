@@ -56,7 +56,7 @@ class Board:
             self.black_pieces.remove(piece)
         self.board[piece.pos_x][piece.pos_y] = None
 
-    def move_or_take_piece(self, piece, x, y):
+    def move_or_take(self, piece, x, y):
         self.board[piece.pos_x][piece.pos_y] = None
         # moves
         if self.board[x][y] is None:

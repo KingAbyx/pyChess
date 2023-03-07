@@ -26,7 +26,7 @@ def press(button, x, y):
     if select is not None:
         if (x, y) in select.get_moves(board1):
             buttons[select.pos_x][select.pos_y]["text"] = ""
-            board1.move_or_take_piece(select, x, y)
+            board1.move_or_take(select, x, y)
             buttons[x][y]["text"] = select
             select = None
             colour_board()
@@ -96,6 +96,8 @@ def populate():
                 buttons[x][y].config(text=board1.board[x][y])
             else:
                 buttons[x][y].config(text="")
+    board1.get_threatened_squares('W')
+    board1.get_threatened_squares('B')
 
 
 def save():

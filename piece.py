@@ -55,7 +55,7 @@ class Piece:
         x, y = self.pos_x + dx, self.pos_y + dy
         while 0 <= x < 8 and 0 <= y < 8:
             if board.board[x][y] is not None:
-                if board.board[x][y] == 'K':
+                if board.board[x][y].figure == 'K':
                     if 0 < x+dx <= 8 and 0 < y+dy <= 8:
                         self.threatened_squares.add((x+dx, y+dy))
                 self.threatened_squares.add((x, y))
